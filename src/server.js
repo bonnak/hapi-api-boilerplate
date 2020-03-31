@@ -11,6 +11,11 @@ const init = async () => {
 		}
 	});
 
+	await server.register([
+		require('./api/routes'),
+		require('./api/plugins/database/dev.database.js')
+	]);
+
 	await server.start();
 	console.log('Server running on %s', server.info.uri);
 };
